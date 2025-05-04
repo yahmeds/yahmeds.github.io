@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Ahnia Ahmed" description="About Ahnia Ahmed Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Read below to learn more about myself and my background."
+			>
+				<img
+					width="1300"
+					height="500"
+					src="/assets/Wright_of_Derby,_The_Orrery.jpg"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I’m a computer science student, recently graduated with a Bachelor's degree from the University of Lille and currently pursuing a Master's. 
+						Throughout my academic journey, I've explored nearly every aspect of the field — from network routing, software engineering,
+						and web development to mathematics and database management. Nothing in IT is foreign to me.
+					</p>
+					
+					<p style="margin-top: 2rem;">
+						Beyond college, I’ve been proactive in pursuing personal interests through self-learning — particularly 
+						in cybersecurity. I've built my knowledge through various resources and even developed a custom pentesting tool
+						using my network programming skills in Java.
+					</p>
+
+				</div>
+			</section>
+			
+			<section>
+				<h2 class="section-title">Jobs</h2>
+				<div class="content">
+
+					<div style="margin-bottom: 1.5rem;">
+						<h3 style="font-size: 1.5rem; font-weight: 600;">FIVES GROUP - Industrial Software Developer</h3>					
+						<p>
+							I was tasked with updating a critical application used by researchers across the region. The existing platform
+							was running on an outdated version of Symfony (V2), which was nearing end-of-life and posed increasing security 
+							and maintenance risks. I led the migration to Symfony V6 — the version offering the longest support window — which 
+							involved adapting the application’s codebase, dependencies, and underlying technologies. This upgrade was performed 
+							through a continuous integration pipeline using Docker, ensuring a smooth, testable transition while maintaining system 
+							stability throughout the process.
+						</p>
+					</div>
+
+					<div style="margin-bottom: 1.5rem;">
+						<h3 style="font-size: 1.5rem; font-weight: 600;">SCC France – IT engineer</h3>
+						<p>
+							I was brought in to support the deployment and maintenance of IT infrastructure for the press and media operations center.
+							This included remastering and preparing numerous workstations, ensuring they met performance and security standards, and
+							configuring them for fast-paced journalistic workflows. I handled on-site interventions across various Olympic venues,
+							including high-pressure environments like live sports arenas. (Fun fact: you might spot me on the rebroadcast of the 
+							China vs. Serbia basketball match!) I was also responsible for troubleshooting network issues, assisting with secure 
+							system access, and contributing to the seamless operation of a highly visible and time-critical environment.
+						</p>
+					</div>
+				</div>
+			</section>
+
+
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
